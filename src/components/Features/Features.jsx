@@ -14,9 +14,9 @@ const subjects = [
 // Default suggestions 
 const defaultSuggestions = [
    "Write a simple Python program to add two numbers",
-  "පරිච්ඡේදයක් ලියන්න — මගේ පාසල",
+  "පාසල පිලිබඳ රචනාවක් ලියන්න",
   "What is HTML used for?",
-  "இலக்கணத்தில் வினைச்சொல் என்றால் என்ன?"
+  "தொழில்நுட்பம் பற்றி ஒரு கட்டுரை எழுதவும்."
   
 ];
 
@@ -35,28 +35,30 @@ const subjectSuggestions = {
     "Explain energy transformation"
   ],
   English: [
-    "Summarize 'The Village by the Sea'",
+    "Analyse this poem",
     "Write a short essay on friendship",
-    "Explain a metaphor with an example",
-    "Who is the main character in Macbeth?"
+    "Identify the Past Continuous Tense:",
+    "Write an essay about your favorite book"
   ],
   History: [
     "Who was King Dutugemunu?",
     "Explain the importance of Anuradhapura Kingdom",
-    "What was the Kandyan Convention?",
+    "Describe the fall of the Kingdom of Kandy",
     "Describe the British colonial period in Sri Lanka"
   ],
   Sinhala: [
-    "සිංහල නාම පද කියන්න",
-    "සිංහල කවි විභාගය කියන්න",
-    "සිංහල වාක්‍ය ව්‍යුහය විස්තර කරන්න",
-    "සිංහල සාහිත්‍යයෙන් කෙටි රචනාවක් ලියන්න"
+    "සිංහල නාම පද ලියන්න",
+    "සිංහලෙන් කවියක් ලියන්න",
+    "පාසල් ගුරුතුමී පිලිබඳ වාක්‍ය පහක් ලිය",
+    "සිංහල යුගල පද කිහිපයක් ලියන්න",
+    "මගේ පාසල පිලිබඳ රචනාවක් ලියන්න"
+
   ],
   Tamil: [
-    "தமிழ் இலக்கணம் விளக்கவும்",
+    "தமிழ் இலக்கணம் பற்றி  விளக்கவும்",
     "சங்க இலக்கியம் பற்றி கூறவும்",
     "ஒரு சிறு கட்டுரை எழுதவும்",
-    "தமிழ் கவிதை பொருள் கூறவும்"
+    "பழமொழிகளின் பொருள் விளக்கவும்"
   ],
   Coding: [
     "Explain what a function is in Python",
