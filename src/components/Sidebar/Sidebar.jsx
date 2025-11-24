@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useBlur } from "../../contexts/BlurContext";
 import styles from "./Sidebar.module.css";
 
 export default function Sidebar({ onNewChat, isOpen: initialOpen = true }) {
@@ -149,6 +150,8 @@ export default function Sidebar({ onNewChat, isOpen: initialOpen = true }) {
   // -----------------------------
   // JSX
   // -----------------------------
+  const { isBlurred } = useBlur();
+
   return (
     <>
       {/* Hamburger Button */}
@@ -166,7 +169,7 @@ export default function Sidebar({ onNewChat, isOpen: initialOpen = true }) {
 
       {/* Sidebar */}
       <div
-        className={`${styles.Sidebar} ${isOpen ? styles.open : ""} ${styles.SidebarDark}`}
+        className={`${styles.Sidebar} ${isOpen ? styles.open : ""} ${styles.SidebarDark} ${isBlurred ? styles.Blurred : ""}`}
       >
         {/* Close Button */}
         <button

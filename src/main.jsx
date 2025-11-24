@@ -4,11 +4,14 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import AppRouter from './AppRouter';
+import { BlurProvider } from './contexts/BlurContext';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <AppRouter />
+      <BlurProvider>
+        <AppRouter />
+      </BlurProvider>
     </BrowserRouter>
   </StrictMode>,
 );

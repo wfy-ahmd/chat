@@ -339,3 +339,10 @@
   .Title { font-size: 0.85rem; }
   .Header { height: 36px; }
 }
+
+/* Applied when global blur state is active */
+.Blurred {
+  filter: blur(8px);
+  opacity: 0.9;
+  transition: filter 0.18s ease, opacity 0.18s ease;
+}

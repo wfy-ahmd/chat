@@ -1,5 +1,7 @@
 // UserMenu.jsx
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
+import { useBlur } from "../../contexts/BlurContext";
 import { useNavigate } from "react-router-dom";
 import FloatingToolWindow from "./FloatingToolWindow";
 import styles from "./UserMenu.module.css";
@@ -112,6 +114,14 @@ export default function UserMenu({ onClose }) {
   const handleLogout = () => {
     setShowLogoutConfirm(true);
   };
+
+  // sync global blur with logout overlay visibility
+  const { setIsBlurred } = useBlur();
+
+  useEffect(() => {
+    setIsBlurred(showLogoutConfirm);
+    return () => setIsBlurred(false);
+  }, [showLogoutConfirm, setIsBlurred]);
 
   const confirmLogout = () => {
     localStorage.removeItem("isLoggedIn");
@@ -848,33 +858,31 @@ export default function UserMenu({ onClose }) {
       )}
 
       {/* ============================= CUSTOM LOGOUT CONFIRMATION POPUP ============================= */}
-      {showLogoutConfirm && (
-        <div className={styles.LogoutConfirmOverlay}>
-          <div className={styles.LogoutConfirmModal}>
-            <img
-               src="/images/logout.png" 
-            
-              className={styles.LogoutConfirmImage}
-            />
-            <h3>Are you logging out?</h3>
-          
-            <div className={styles.LogoutConfirmButtons}>
-              <button
-                className={styles.LogoutConfirmCancel}
-                onClick={cancelLogout}
-              >
-                Cancel
-              </button>
-              <button
-                className={styles.LogoutConfirmConfirm}
-                onClick={confirmLogout}
-              >
-                Log Out
-              </button>
+      {showLogoutConfirm &&
+        createPortal(
+          <div className={styles.LogoutConfirmOverlay}>
+            <div className={styles.LogoutConfirmModal}>
+              <img src="/images/logout.png" className={styles.LogoutConfirmImage} />
+              <h3>Are you logging out?</h3>
+
+              <div className={styles.LogoutConfirmButtons}>
+                <button
+                  className={styles.LogoutConfirmCancel}
+                  onClick={cancelLogout}
+                >
+                  Cancel
+                </button>
+                <button
+                  className={styles.LogoutConfirmConfirm}
+                  onClick={confirmLogout}
+                >
+                  Log Out
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </>
   );
 }

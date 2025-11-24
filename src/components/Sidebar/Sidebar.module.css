@@ -85,6 +85,13 @@ gap: 1rem;
 
 .Sidebar.open { transform: translateX(0); }
 
+/* Applied when global blur state is active */
+.Blurred {
+  filter: blur(8px);
+  opacity: 0.85;
+  transition: filter 0.18s ease, opacity 0.18s ease;
+}
+
 /* Close Button - Smooth Glowing Chevron */
 .CloseButton {
 position: absolute;
