@@ -862,7 +862,11 @@ export default function UserMenu({ onClose }) {
         createPortal(
           <div className={styles.LogoutConfirmOverlay}>
             <div className={styles.LogoutConfirmModal}>
+<<<<<<< HEAD
               <img src="/images/logout_1.png" className={styles.LogoutConfirmImage} />
+=======
+              <img src="/images/logout.png" className={styles.LogoutConfirmImage} />
+>>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
               <h3>Are you logging out?</h3>
 
               <div className={styles.LogoutConfirmButtons}>

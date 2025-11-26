@@ -201,6 +201,7 @@
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 0 20px rgba(185, 103, 255, 0.3);
+<<<<<<< HEAD
   z-index: 1002;
   min-width: 180px;
 }
@@ -219,6 +220,12 @@
   }
 }
 
+=======
+  z-index: 1000;
+  min-width: 180px;
+}
+
+>>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
 /* === CHAT CONTAINER === */
 .ChatContainer {
   flex: 1;
@@ -234,7 +241,11 @@
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   position: relative;
+<<<<<<< HEAD
   /* REMOVED: z-index: 5; ← this was causing UserMenu to appear behind */
+=======
+  z-index: 5;
+>>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
   padding: 0.6rem 0.8rem;
   margin-left: -130px;
 }
@@ -360,6 +371,7 @@
   opacity: 0.9;
   transition: filter 0.18s ease, opacity 0.18s ease;
 }
+<<<<<<< HEAD
 
 /* === FULL MOBILE RESPONSIVENESS (All Phones: iPhone, Samsung, Vivo, Redmi, etc.) === */
 
@@ -466,3 +478,5 @@
     font-size: 0.85rem !important;
   }
 }
+=======
+>>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b

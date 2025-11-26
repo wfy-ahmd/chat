@@ -2,6 +2,7 @@
   --font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+<<<<<<< HEAD
 * { 
   box-sizing: border-box; 
 }
@@ -9,6 +10,11 @@
 html, body, #root { 
   height: 100%; 
 }
+=======
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+>>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
 
 body {
   margin: 0 auto;
@@ -19,6 +25,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+<<<<<<< HEAD
 
 
 /* === MOBILE RESPONSIVENESS SAFETY LAYER === */
@@ -49,3 +56,5 @@ body {
     font-size: 16px !important;
   }
 }
+=======
+>>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
