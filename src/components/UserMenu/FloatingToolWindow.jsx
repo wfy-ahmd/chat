@@ -13,7 +13,6 @@ export default function FloatingToolWindow({ tool, children, onClose }) {
       pos2 = 0,
       pos3 = 0,
       pos4 = 0;
-<<<<<<< HEAD
     let isDragging = false;
 
     const dragMouseDown = (e) => {
@@ -89,60 +88,24 @@ export default function FloatingToolWindow({ tool, children, onClose }) {
       document.removeEventListener("mouseup", closeDragElement);
       document.removeEventListener("touchmove", elementDrag);
       document.removeEventListener("touchend", closeDragElement);
-=======
-
-    const dragMouseDown = (e) => {
-      e.preventDefault();
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      document.onmouseup = closeDragElement;
-      document.onmousemove = elementDrag;
-    };
-
-    const elementDrag = (e) => {
-      e.preventDefault();
-      pos1 = pos3 - e.clientX;
-      pos2 = pos4 - e.clientY;
-      pos3 = e.clientX;
-      pos4 = e.clientY;
-      el.style.top = el.offsetTop - pos2 + "px";
-      el.style.left = el.offsetLeft - pos1 + "px";
-    };
-
-    const closeDragElement = () => {
-      document.onmouseup = null;
-      document.onmousemove = null;
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
     };
 
     const header = el.querySelector(`.${styles.FloatingHeader}`);
     if (header) {
-<<<<<<< HEAD
       header.addEventListener("mousedown", dragMouseDown);
       header.addEventListener("touchstart", dragMouseDown, { passive: false });
-=======
-      header.onmousedown = dragMouseDown;
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
     }
 
     return () => {
       if (header) {
-<<<<<<< HEAD
         header.removeEventListener("mousedown", dragMouseDown);
         header.removeEventListener("touchstart", dragMouseDown);
       }
       closeDragElement();
-=======
-        header.onmousedown = null;
-      }
-      document.onmouseup = null;
-      document.onmousemove = null;
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
     };
   }, []);
 
   return (
-<<<<<<< HEAD
     <div 
       ref={winRef} 
       className={styles.FloatingWindow}
@@ -154,12 +117,6 @@ export default function FloatingToolWindow({ tool, children, onClose }) {
           onClick={onClose}
           type="button"
         >
-=======
-    <div ref={winRef} className={styles.FloatingWindow}>
-      <div className={styles.FloatingHeader}>
-        <span>{tool}</span>
-        <button className={styles.FloatingCloseBtn} onClick={onClose}>
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
           ✕
         </button>
       </div>

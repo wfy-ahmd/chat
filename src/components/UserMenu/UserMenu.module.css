@@ -25,7 +25,6 @@
   color: #f7f1ff;
   font-family: "Manrope", sans-serif;
   overflow-y: auto;
-<<<<<<< HEAD
   z-index: 1002;
   animation: userMenuPop 0.22s ease-out;
 }
@@ -38,12 +37,6 @@
   }
 }
 
-=======
-  z-index: 1000;
-  animation: userMenuPop 0.22s ease-out;
-}
-
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
 @keyframes userMenuPop {
   from {
     opacity: 0;
@@ -197,7 +190,6 @@
     inset 0 0 10px rgba(255, 255, 255, 0.04);
   color: #fff;
   font-family: "Manrope", sans-serif;
-<<<<<<< HEAD
   z-index: 1002;
   animation: fadeIn 0.25s ease-in-out;
 }
@@ -210,11 +202,6 @@
   }
 }
 
-=======
-  animation: fadeIn 0.25s ease-in-out;
-}
-
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -359,14 +346,9 @@
 @media (max-width: 768px) {
   .UserMenu,
   .ToolPanel {
-<<<<<<< HEAD
     left: 50%;
     right: auto;
     transform: translateX(-50%);
-=======
-    right: 50%;
-    transform: translateX(50%);
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
     width: 90%;
     max-width: 360px;
   }
@@ -946,16 +928,11 @@
   backdrop-filter: blur(18px);
   color: #fff;
   font-family: "Manrope", sans-serif;
-<<<<<<< HEAD
   z-index: 1051;
-=======
-  z-index: 1050;
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
   animation: fadeIn 0.25s ease-in-out;
   user-select: none;
 }
 
-<<<<<<< HEAD
 /* Mobile: Ensure FloatingWindow stays on top of all elements */
 @media (max-width: 775px) {
   .FloatingWindow {
@@ -963,8 +940,6 @@
   }
 }
 
-=======
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
 .FloatingHeader {
   display: flex;
   justify-content: space-between;
@@ -1041,7 +1016,6 @@
   transform: scale(1.01);
 }
 
-<<<<<<< HEAD
 /* Responsive: On small screens, make floating window compact */
 @media (max-width: 768px) {
   .FloatingWindow {
@@ -1129,17 +1103,6 @@
 
   .ToolHint {
     font-size: 0.7rem !important;
-=======
-/* Responsive: On small screens, center floating window */
-@media (max-width: 768px) {
-  .FloatingWindow {
-    right: 50%;
-    left: auto;
-    transform: translateX(50%);
-    width: 90%;
-    max-width: 360px;
-    top: 320px;
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
   }
 }
 
@@ -1274,7 +1237,6 @@
 .LogoutConfirmConfirm:hover {
   background: linear-gradient(135deg, rgba(200, 120, 255, 0.9), rgba(120, 60, 200, 0.9));
   transform: translateY(-1px);
-<<<<<<< HEAD
 }
 
 /* === FULL MOBILE OPTIMIZATION — All Phones (iPhone, Samsung, Vivo, Redmi, etc.) === */
@@ -1506,6 +1468,4 @@
   .LogoutConfirmImage {
     max-height: 180px !important;
   }
-=======
->>>>>>> 14fc190b2359fef28e5c86b7a8174c9fd7d9797b
 }
