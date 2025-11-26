@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
+
+/* === MAIN APP CONTAINER === */
+.App {
+  font-family: 'Manrope', sans-serif;
+  display: flex;
+  height: 100vh;
+  background: transparent;
+  color: #fff;
+  overflow: visible;
+  position: fixed;
+  z-index: 1;
+  justify-content: flex-start;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* === GLOBAL SCROLLBAR === */
+.App ::-webkit-scrollbar {
+  width: 6px;
+}
+.App ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.App ::-webkit-scrollbar-thumb {
+  background: rgba(185, 103, 255, 0.3);
+  border-radius: 10px;
+}
+.App ::-webkit-scrollbar-thumb:hover {
+  background: rgba(185, 103, 255, 0.6);
+  box-shadow: 0 0 8px rgba(185, 103, 255, 0.8);
+}
+
+/* === LEFT SIDEBAR === */
+.Sidebar {
+  flex: 1;
+  max-width: 900px;
+  min-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(13, 11, 26, 0.8);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(185, 103, 255, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+/* Sidebar scrollbar */
+.Sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.Sidebar::-webkit-scrollbar-thumb {
+  background: rgba(185, 103, 255, 0.3);
+  border-radius: 10px;
+}
+.Sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(185, 103, 255, 0.6);
+  box-shadow: 0 0 8px rgba(185, 103, 255, 0.8);
+}
+
+/* Sidebar Header */
+.SidebarHeader {
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+/* New Chat Button */
+.NewChatButton {
+  background: rgba(185, 103, 255, 0.1);
+  color: #B967FF;
+  border: 1px solid rgba(185, 103, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.NewChatButton:hover {
+  background: rgba(185, 103, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Sidebar Elements */
+.SearchInput {
+  background: rgba(185, 103, 255, 0.05);
+  color: #fff;
+  border: 1px solid rgba(185, 103, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  outline: none;
+  margin: 0 1.5rem;
+  width: calc(100% - 3rem);
+}
+.ChatListSection {
+  padding: 0 1.5rem;
+  font-size: 0.85rem;
+  color: #aaa;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+.ChatItem {
+  background: rgba(185, 103, 255, 0.05);
+  border: 1px solid rgba(185, 103, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.ChatItem:hover {
+  background: rgba(185, 103, 255, 0.1);
+  transform: translateX(2px);
+}
+.UserFooter {
+  margin-top: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #B967FF;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.UserFooter:hover {
+  color: #fff;
+}
+
+/* === RIGHT SIDEBAR === */
+.RightSidebar {
+  width: 0;
+  background: transparent;
+  border-left: 1px solid rgba(185, 103, 255, 0.1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: visible;
+}
+.RightSidebar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(13, 11, 26, 0.8);
+  backdrop-filter: blur(12px);
+  z-index: -1;
+}
+
+/* Avatar */
+.UserAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(185, 103, 255, 0.2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 8px rgba(185, 103, 255, 0.5);
+  margin: 16px 12px 0 0;
+}
+.UserAvatar:hover {
+  background: rgba(185, 103, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* User Menu */
+.UserMenu {
+  position: absolute;
+  top: 70px;
+  right: 12px;
+  background: rgba(13, 11, 26, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(185, 103, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 20px rgba(185, 103, 255, 0.3);
+  z-index: 1002;
+  min-width: 180px;
+}
+
+/* Mobile: Override RightSidebar display to keep UserMenu visible */
+@media (max-width: 775px) {
+  .UserMenu {
+    z-index: 1002 !important;
+    position: fixed !important;
+  }
+  .RightSidebar {
+    display: flex !important;
+    position: fixed !important;
+    width: auto !important;
+    z-index: 1001 !important;
+  }
+}
+
+/* === CHAT CONTAINER === */
+.ChatContainer {
+  flex: 1;
+  max-width: 900px;
+  min-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: rgba(13, 11, 26, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(185, 103, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  /* REMOVED: z-index: 5; ← this was causing UserMenu to appear behind */
+  padding: 0.6rem 0.8rem;
+  margin-left: -130px;
+}
+
+/* === HEADER & BODY === */
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ✅ Center logo + name */
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(13, 11, 26, 0.6);
+  border-bottom: 1px solid rgba(185, 103, 255, 0.1);
+  height: 45px; /* ✅ Reduced height */
+}
+.Logo {
+  width: 30px; /* ✅ Smaller logo */
+  height: 30px;
+  margin-right: 4px;
+  filter: drop-shadow(0 0 3px #B967FF);
+}
+.Title {
+  font-size: 1.1rem; /* ✅ Smaller text */
+  font-weight: 600;
+  color: #B967FF;
+  text-shadow: 0 0 5px rgba(185, 103, 255, 0.5);
+  letter-spacing: 0.5px;
+}
+
+/* Chat Body */
+.ChatBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  scroll-behavior: smooth;
+  background: transparent;
+}
+.ChatBody::-webkit-scrollbar {
+  width: 6px;
+}
+.ChatBody::-webkit-scrollbar-thumb {
+  background: rgba(185, 103, 255, 0.3);
+  border-radius: 10px;
+}
+.ChatBody::-webkit-scrollbar-thumb:hover {
+  background: rgba(185, 103, 255, 0.6);
+}
+
+/* Typing Indicator */
+.TypingIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #B967FF;
+  opacity: 0.85;
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
+}
+.Dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #B967FF;
+  animation: blink 1.4s infinite both;
+}
+.Dot:nth-child(2) { animation-delay: 0.2s; }
+.Dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px rgba(185, 103, 255, 0.8); }
+}
+
+/* === RESPONSIVENESS === */
+
+/* Laptops */
+@media (max-width: 1366px) {
+  .ChatContainer { margin-left: -80px; width: 95%; }
+  .Logo { width: 28px; height: 28px; }
+  .Title { font-size: 1rem; }
+  .Header { height: 42px; }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .ChatContainer { margin-left: 0; padding: 8px; width: 95%; }
+  .Logo { width: 26px; height: 26px; }
+  .Title { font-size: 1rem; }
+}
+
+/* Phones (All brands) */
+@media (max-width: 768px) {
+  .ChatContainer { margin-left: 0; width: 100%; border-radius: 0; padding: 0.6rem; }
+  .Header { height: 40px; padding: 0.4rem; }
+  .Logo { width: 25px; height: 25px; }
+  .Title { font-size: 0.95rem; }
+  .Sidebar { position: absolute; width: 240px; left: -250px; transition: left 0.3s ease; }
+  .Sidebar.open { left: 0; }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .ChatContainer { padding: 0.5rem; }
+  .Logo { width: 22px; height: 22px; }
+  .Title { font-size: 0.9rem; }
+  .Header { height: 38px; }
+}
+
+/* Ultra Small Devices */
+@media (max-width: 360px) {
+  .ChatContainer { padding: 0.4rem; }
+  .Logo { width: 20px; height: 20px; }
+  .Title { font-size: 0.85rem; }
+  .Header { height: 36px; }
+}
+
+/* Applied when global blur state is active */
+.Blurred {
+  filter: blur(8px);
+  opacity: 0.9;
+  transition: filter 0.18s ease, opacity 0.18s ease;
+}
+
+/* === FULL MOBILE RESPONSIVENESS (All Phones: iPhone, Samsung, Vivo, Redmi, etc.) === */
+
+@media (max-width: 767px) {
+  /* Main App Layout: Stack vertically, remove fixed sidebars */
+  .App {
+    flex-direction: column;
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Hide Left Sidebar by default on mobile */
+  .Sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    max-width: none;
+    min-width: auto;
+    height: 100vh;
+    z-index: 1001;
+    transition: left 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Optional: Add open state if you later control it via JS */
+  .Sidebar.mobile-open {
+    left: 0;
+  }
+
+  /* Right Sidebar: Keep visible on mobile so UserMenu/ToolPanel remain accessible */
+  .RightSidebar {
+    display: flex !important;
+    position: fixed !important;
+    width: auto !important;
+    height: auto !important;
+    bottom: auto !important;
+    z-index: 1001 !important;
+    background: transparent !important;
+    border-left: none !important;
+    overflow: visible !important;
+  }
+  
+  .RightSidebar::before {
+    display: none !important;
+  }
+
+  /* Chat Container: Full width, no negative margin, no min-width */
+  .ChatContainer {
+    flex: 1;
+    width: 100% !important;
+    min-width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    height: calc(100vh - 40px); /* Adjust if needed */
+    box-sizing: border-box;
+    z-index: 1 !important;
+    position: relative !important;
+  }
+
+  /* Ensure chat body fills available space */
+  .ChatBody {
+    padding: 1rem 0.8rem !important;
+    height: calc(100% - 120px); /* Adjust based on header + controls height */
+    box-sizing: border-box;
+  }
+
+  /* Header: Keep centered, slightly smaller */
+  .Header {
+    padding: 0.5rem !important;
+    height: auto !important;
+  }
+
+  /* Prevent horizontal scroll */
+  body,
+  html,
+  #root,
+  .App {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Ensure no element overflows */
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* Extra safety for very small screens */
+@media (max-width: 390px) {
+  .ChatContainer {
+    padding: 0.4rem !important;
+  }
+  .Header {
+    padding: 0.4rem !important;
+  }
+  .Logo {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .Title {
+    font-size: 0.85rem !important;
+  }
+}

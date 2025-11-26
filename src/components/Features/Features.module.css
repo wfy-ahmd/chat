@@ -1,0 +1,227 @@
+.Features {
+  padding: 0.7rem 1rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  background: rgba(20, 16, 35, 0.5);
+  backdrop-filter: blur(12px) saturate(160%);
+  border-bottom: 1px solid rgba(185, 103, 255, 0.12);
+  border-radius: 0 0 14px 14px;
+  transition: all 0.3s ease;
+}
+
+/* Subjects Row */
+.Subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: flex-start;
+}
+
+/* Subject Buttons */
+.SubjectTag {
+  background: rgba(185, 103, 255, 0.06);
+  color: #cbb7ff;
+  border: 1px solid rgba(185, 103, 255, 0.15);
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Manrope', sans-serif;
+  box-shadow: 0 0 6px rgba(185, 103, 255, 0.08);
+}
+
+.SubjectTag:hover {
+  background: rgba(185, 103, 255, 0.18);
+  border-color: rgba(185, 103, 255, 0.35);
+  color: #fff;
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 0 10px rgba(185, 103, 255, 0.25);
+}
+
+/* Active subject button */
+.Active {
+  background: linear-gradient(135deg, rgba(185, 103, 255, 0.35), rgba(120, 64, 200, 0.45));
+  border: 1px solid rgba(185, 103, 255, 0.6);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(185, 103, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Suggestions Section */
+.Suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: #bcbcbc;
+  font-family: 'Manrope', sans-serif;
+  letter-spacing: 0.2px;
+  transition: opacity 0.3s ease;
+}
+
+.TryLabel {
+  color: #aaa;
+  font-weight: 500;
+  margin-right: 0.2rem;
+  font-size: 0.8rem;
+}
+
+/* Suggestion buttons */
+.Suggestion {
+  background: rgba(255, 255, 255, 0.04);
+  color: #eee;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.75rem;
+}
+
+.Suggestion:hover {
+  background: rgba(185, 103, 255, 0.25);
+  color: #fff;
+  border-color: rgba(185, 103, 255, 0.35);
+  box-shadow: 0 0 8px rgba(185, 103, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Subtle fade for “Try” section */
+.Suggestions {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 💠 Responsive Tweaks (Modern Devices 2025) */
+@media (max-width: 1024px) {
+  .Features {
+    padding: 0.7rem 0.8rem 0.9rem;
+  }
+  .SubjectTag {
+    font-size: 0.78rem;
+    padding: 0.28rem 0.7rem;
+  }
+  .Suggestion {
+    font-size: 0.73rem;
+    padding: 0.28rem 0.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .Subjects {
+    justify-content: center;
+  }
+  .Features {
+    background: rgba(25, 20, 45, 0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  .Features {
+    padding: 0.6rem;
+    gap: 0.7rem;
+  }
+  .Subjects {
+    gap: 0.45rem;
+  }
+  .SubjectTag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+  .Suggestion {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.55rem;
+  }
+}
+
+/* For compact modern phones (iPhone, Samsung, Vivo, Redmi, Google Pixel) */
+@media (max-width: 390px) {
+  .Features {
+    padding: 0.5rem;
+  }
+  .Subjects {
+    gap: 0.35rem;
+  }
+  .SubjectTag {
+    padding: 0.22rem 0.55rem;
+    font-size: 0.7rem;
+  }
+  .Suggestion {
+    padding: 0.22rem 0.5rem;
+    font-size: 0.68rem;
+  }
+}
+
+
+/* === ULTRA-SAFE MOBILE LAYER — All Phones (2025 Devices) === */
+
+@media (max-width: 767px) {
+  /* Ensure subjects wrap cleanly and stay readable */
+  .Subjects {
+    justify-content: center !important;
+    padding: 0 4px !important;
+  }
+
+  .SubjectTag {
+    min-width: auto !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    padding: 0.25rem 0.6rem !important;
+    font-size: 0.75rem !important;
+    height: auto !important;
+  }
+
+  /* Improve suggestion readability */
+  .Suggestions {
+    gap: 0.4rem !important;
+    padding: 0 2px !important;
+  }
+
+  .Suggestion {
+    white-space: normal !important;
+    word-break: break-word !important;
+    text-align: center !important;
+    padding: 0.25rem 0.55rem !important;
+    font-size: 0.72rem !important;
+    min-height: 28px !important;
+  }
+
+  .TryLabel {
+    font-size: 0.75rem !important;
+  }
+
+  /* Prevent any overflow */
+  .Features {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.6rem 0.5rem !important;
+  }
+}
+
+/* Extra safety for smallest screens (e.g., iPhone SE, Redmi A1) */
+@media (max-width: 360px) {
+  .SubjectTag {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  .Suggestion {
+    font-size: 0.68rem !important;
+    padding: 0.2rem 0.5rem !important;
+    min-height: 26px !important;
+  }
+
+  .Features {
+    padding: 0.5rem 0.4rem !important;
+  }
+}

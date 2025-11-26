@@ -1,0 +1,1471 @@
+/* ======================================================
+   USER MENU
+====================================================== */
+
+.UserMenu {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 280px;
+  max-height: 80vh;
+  padding: 0.9rem 0.95rem;
+  border-radius: 18px;
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.28),
+      transparent 55%
+    ),
+    rgba(13, 11, 26, 0.96);
+  border: 1px solid rgba(185, 103, 255, 0.5);
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.82),
+    0 0 25px rgba(185, 103, 255, 0.45),
+    inset 0 0 10px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  color: #f7f1ff;
+  font-family: "Manrope", sans-serif;
+  overflow-y: auto;
+  z-index: 1002;
+  animation: userMenuPop 0.22s ease-out;
+}
+
+/* Mobile: Ensure UserMenu stays on top of sidebar and chat */
+@media (max-width: 775px) {
+  .UserMenu {
+    z-index: 1002 !important;
+    position: fixed !important;
+  }
+}
+
+@keyframes userMenuPop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.UserMenuItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.65rem 0.7rem;
+  margin: 0.05rem 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    transform 0.16s ease,
+    box-shadow 0.16s ease;
+  color: #f7f1ff;
+}
+
+.UserMenuItem:hover {
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.35),
+      rgba(54, 37, 112, 0.5)
+    );
+  box-shadow: 0 0 0 1px rgba(185, 103, 255, 0.75);
+  transform: translateY(-1px);
+}
+
+.UserMenuHeaderItem {
+  margin-bottom: 0.25rem;
+}
+
+.UserMenuIcon {
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+}
+
+.UserMenuTextBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.UserMenuTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.UserMenuSubtitle {
+  font-size: 0.8rem;
+  color: #c3b6ff;
+}
+
+.ToolSectionLabelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0.4rem 0.1rem 0.2rem;
+}
+
+.ToolSection {
+  color: #e0d6ff;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.ToolSectionHint {
+  font-size: 0.75rem;
+  color: #9f92ff;
+}
+
+.Divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(185, 103, 255, 0.35),
+    transparent
+  );
+  margin: 0.6rem 0;
+}
+
+.LogoutItem {
+  margin-top: 0.25rem;
+  color: #ffb2b2;
+}
+
+.LogoutItem:hover {
+  background: rgba(255, 120, 120, 0.18);
+  box-shadow: 0 0 0 1px rgba(255, 120, 120, 0.65);
+  transform: translateY(-1px);
+}
+
+/* Menu Close Button — Updated */
+.MenuCloseBtn {
+  background: transparent;
+  border: none;
+  color: #b967ff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(185, 103, 255, 0.25);
+}
+
+.MenuCloseBtn:hover {
+  color: #ff99cc;
+  background: rgba(185, 103, 255, 0.12);
+  transform: scale(1.05);
+  box-shadow:
+    inset 0 0 0 1px rgba(185, 103, 255, 0.4),
+    0 0 8px rgba(185, 103, 255, 0.35);
+}
+
+/* ======================================================
+   TOOL PANEL
+====================================================== */
+
+.ToolPanel {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 320px;
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.25),
+      transparent 55%
+    ),
+    rgba(13, 11, 26, 0.96);
+  border-radius: 18px;
+  border: 1px solid rgba(185, 103, 255, 0.45);
+  padding: 1rem;
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.82),
+    0 0 25px rgba(185, 103, 255, 0.45),
+    inset 0 0 10px rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  z-index: 1002;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* Mobile: Ensure ToolPanel stays on top of sidebar and chat */
+@media (max-width: 775px) {
+  .ToolPanel {
+    z-index: 1002 !important;
+    position: fixed !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ToolHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.BackButton {
+  background: none;
+  border: none;
+  color: #b967ff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.BackButton:hover {
+  color: #e0d6ff;
+}
+
+.ToolHeader h3 {
+  margin: 0;
+  color: #f3e6ff;
+  font-size: 1.2rem;
+}
+
+/* Glass card for all tools */
+.GlassCard {
+  background: rgba(25, 20, 45, 0.7);
+  border-radius: 14px;
+  border: 1px solid rgba(185, 103, 255, 0.35);
+  padding: 1rem;
+  box-shadow: inset 0 0 10px rgba(185, 103, 255, 0.18);
+  transition: transform 0.2s ease;
+}
+
+.GlassCard:hover {
+  transform: scale(1.01);
+}
+
+/* Shared styling */
+.TimerDisplay {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  color: #e8dcff;
+  text-shadow: 0 0 10px rgba(185, 103, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.ToolButtons {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ToolButton {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  background: linear-gradient(
+    135deg,
+    rgba(185, 103, 255, 0.28),
+    rgba(100, 50, 180, 0.2)
+  );
+  border: 1px solid rgba(185, 103, 255, 0.5);
+  color: #f4ecff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.ToolButton:hover {
+  background: rgba(185, 103, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(185, 103, 255, 0.75);
+}
+
+.ToolHint {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+.ToolTextarea {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(25, 20, 55, 0.75);
+  border: 1px solid rgba(185, 103, 255, 0.4);
+  border-radius: 10px;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  font-family: "Manrope", sans-serif;
+  resize: vertical;
+}
+
+.NotesList {
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(185, 103, 255, 0.3) transparent;
+}
+
+.NoteItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(185, 103, 255, 0.18);
+  color: #e0d6ff;
+}
+
+.DeleteButton {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+
+.DeleteButton:hover {
+  transform: scale(1.2);
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .UserMenu,
+  .ToolPanel {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 360px;
+  }
+
+  .TimerDisplay {
+    font-size: 2rem;
+  }
+
+  .ToolButton {
+    font-size: 0.85rem;
+  }
+}
+
+/* ======================================================
+   SETTINGS MODAL (LIKE CHATGPT)
+====================================================== */
+
+.SettingsOverlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+      circle at top,
+      rgba(185, 103, 255, 0.18),
+      transparent 55%
+    ),
+    rgba(5, 4, 15, 0.75);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 310px;
+  z-index: 1100;
+  animation: overlayFade 0.2s ease-out;
+}
+
+@keyframes overlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.SettingsModal {
+  width: 520px;
+  max-width: 92vw;
+  max-height: 80vh;
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.25),
+      transparent 55%
+    ),
+    rgba(18, 14, 35, 0.96);
+  border-radius: 20px;
+  border: 1px solid rgba(185, 103, 255, 0.45);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.75);
+  padding: 1.1rem 1.2rem;
+  color: #f7f1ff;
+  font-family: "Manrope", sans-serif;
+  animation: modalPop 0.22s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.SettingsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.9rem;
+}
+
+.SettingsHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #f4e9ff;
+}
+
+.SettingsHeader p {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: #c4b5ff;
+}
+
+/* Settings Close Button — Updated */
+.SettingsCloseBtn {
+  background: transparent;
+  border: none;
+  color: #b967ff;
+  font-size: 1.05rem;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(185, 103, 255, 0.25);
+}
+
+.SettingsCloseBtn:hover {
+  color: #ff99cc;
+  background: rgba(185, 103, 255, 0.12);
+  transform: scale(1.05);
+  box-shadow:
+    inset 0 0 0 1px rgba(185, 103, 255, 0.4),
+    0 0 8px rgba(185, 103, 255, 0.35);
+}
+
+.SettingsBody {
+  display: flex;
+  gap: 0.9rem;
+  flex: 1;
+  min-height: 260px;
+}
+
+/* Sidebar inside modal */
+.SettingsSidebar {
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-right: 0.2rem;
+}
+
+.SettingsTab {
+  padding: 0.55rem 0.7rem;
+  font-size: 0.85rem;
+  text-align: left;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: #d9d1ff;
+  background: rgba(47, 36, 96, 0.7);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.SettingsTab:hover {
+  background: rgba(185, 103, 255, 0.35);
+  transform: translateX(2px);
+}
+
+.SettingsTabActive {
+  background: linear-gradient(
+    135deg,
+    rgba(185, 103, 255, 0.9),
+    rgba(117, 70, 255, 0.9)
+  );
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Content area */
+.SettingsContent {
+  flex: 1;
+  background: rgba(14, 10, 32, 0.9);
+  border-radius: 14px;
+  border: 1px solid rgba(185, 103, 255, 0.35);
+  padding: 0.9rem;
+  overflow-y: auto;
+}
+
+.SettingsContent h4 {
+  margin: 0 0 0.6rem;
+  font-size: 0.98rem;
+  color: #f0e4ff;
+}
+
+/* Individual rows */
+.SettingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.2rem;
+  border-bottom: 1px solid rgba(185, 103, 255, 0.16);
+}
+
+.SettingRow:last-child {
+  border-bottom: none;
+}
+
+.SettingText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.SettingText span {
+  font-size: 0.9rem;
+  color: #f7f0ff;
+}
+
+.SettingText small {
+  font-size: 0.78rem;
+  color: #b9abff;
+}
+
+/* Selects */
+.SettingSelect {
+  background: rgba(25, 20, 55, 0.95);
+  border-radius: 8px;
+  border: 1px solid rgba(185, 103, 255, 0.45);
+  padding: 0.3rem 0.55rem;
+  color: #f5efff;
+  font-size: 0.85rem;
+  font-family: "Manrope", sans-serif;
+}
+
+/* Toggle switch */
+.ToggleWrapper {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+}
+
+.ToggleWrapper input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.ToggleSlider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgba(120, 99, 184, 0.7);
+  border-radius: 999px;
+  transition: background-color 0.18s ease;
+}
+
+.ToggleSlider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #fdfbff;
+  border-radius: 50%;
+  transition: transform 0.18s ease;
+}
+
+.ToggleWrapper input:checked + .ToggleSlider {
+  background: linear-gradient(
+    135deg,
+    rgba(185, 103, 255, 0.95),
+    rgba(117, 70, 255, 0.95)
+  );
+}
+
+.ToggleWrapper input:checked + .ToggleSlider::before {
+  transform: translateX(18px);
+}
+
+/* Danger button in privacy tab */
+.DangerButton {
+  margin-top: 0.9rem;
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 120, 120, 0.7);
+  background: rgba(120, 20, 30, 0.45);
+  color: #ffd4d4;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.DangerButton:hover {
+  background: rgba(180, 40, 50, 0.7);
+  box-shadow: 0 0 0 1px rgba(255, 140, 140, 0.6);
+}
+
+/* Responsive: Modal on small screens */
+@media (max-width: 900px) {
+  .SettingsOverlay {
+    padding-right: 0;
+    justify-content: center;
+  }
+
+  .SettingsModal {
+    width: 95vw;
+    max-height: 85vh;
+  }
+
+  .SettingsBody {
+    flex-direction: column;
+  }
+
+  .SettingsSidebar {
+    flex-direction: row;
+    width: auto;
+    overflow-x: auto;
+  }
+
+  .SettingsTab {
+    white-space: nowrap;
+  }
+}
+
+
+/* ============================================================
+    🆕 HELP CENTER MODAL (CENTERED, PREMIUM UI)
+=============================================================== */
+
+.HelpOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 4, 11, 0.65);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1300;
+  animation: helpOverlayFade 0.2s ease-out;
+}
+
+@keyframes helpOverlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.HelpModal {
+  width: 760px;
+  max-width: 92%;
+  max-height: 85vh;
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.25),
+      transparent 45%
+    ),
+    rgba(18, 14, 35, 0.96);
+  border-radius: 20px;
+  border: 1px solid rgba(185, 103, 255, 0.45);
+  box-shadow: 0 0 35px rgba(185, 103, 255, 0.3),
+    inset 0 0 12px rgba(255, 255, 255, 0.04);
+  padding: 1.5rem;
+  animation: helpModalPop 0.25s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes helpModalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.HelpHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(185, 103, 255, 0.25);
+  padding-bottom: 1rem;
+}
+
+.HelpHeader h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #f0e2ff;
+}
+
+.HelpHeader p {
+  margin: 4px 0 0;
+  color: #bba8ff;
+  font-size: 0.85rem;
+}
+
+/* Help Close Button — Updated */
+.HelpCloseBtn {
+  background: transparent;
+  border: none;
+  color: #b967ff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(185, 103, 255, 0.25);
+}
+
+.HelpCloseBtn:hover {
+  color: #ff99cc;
+  background: rgba(185, 103, 255, 0.12);
+  transform: scale(1.05);
+  box-shadow:
+    inset 0 0 0 1px rgba(185, 103, 255, 0.4),
+    0 0 8px rgba(185, 103, 255, 0.35);
+}
+
+.HelpBody {
+  display: flex;
+  margin-top: 1.2rem;
+  gap: 1rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+.HelpSidebar {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.HelpTab {
+  padding: 0.75rem;
+  background: rgba(185, 103, 255, 0.12);
+  color: #dcd1ff;
+  border-radius: 12px;
+  text-align: left;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.HelpTab:hover {
+  background: rgba(185, 103, 255, 0.22);
+  transform: translateX(4px);
+}
+
+.HelpTabActive {
+  background: rgba(185, 103, 255, 0.45);
+  border-color: rgba(185, 103, 255, 0.6);
+  color: #fff;
+  font-weight: 600;
+}
+
+.HelpContent {
+  flex: 1;
+  background: rgba(20, 16, 36, 0.6);
+  border: 1px solid rgba(185, 103, 255, 0.22);
+  border-radius: 14px;
+  padding: 1.1rem;
+  overflow-y: auto;
+  box-shadow: inset 0 0 10px rgba(185, 103, 255, 0.12);
+}
+
+.HelpContent h4 {
+  margin-top: 0;
+  color: #f7ebff;
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.HelpParagraph {
+  color: #cfc3ff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.HelpList {
+  padding-left: 1.2rem;
+  color: #e8dcff;
+  margin-bottom: 1.5rem;
+}
+
+.HelpList li {
+  margin: 0.4rem 0;
+}
+
+.HelpTextarea {
+  width: 100%;
+  height: 110px;
+  background: rgba(25, 20, 55, 0.6);
+  border: 1px solid rgba(185, 103, 255, 0.4);
+  border-radius: 12px;
+  padding: 0.7rem;
+  color: #fff;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.HelpSubmitBtn {
+  padding: 0.7rem 1rem;
+  background: rgba(117, 70, 255, 0.45);
+  border: 1px solid rgba(185, 103, 255, 0.6);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.22s;
+}
+
+.HelpSubmitBtn:hover {
+  background: rgba(117, 70, 255, 0.65);
+}
+
+.DownloadButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.StoreButton {
+  flex: 1;
+  padding: 0.8rem;
+  background: rgba(185, 103, 255, 0.25);
+  border: 1px solid rgba(185, 103, 255, 0.45);
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.StoreButton:hover {
+  background: rgba(185, 103, 255, 0.45);
+}
+
+@media (max-width: 780px) {
+  .HelpBody {
+    flex-direction: column;
+  }
+
+  .HelpSidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .HelpTab {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+/* ======================================================
+   FLOATING TOOL WINDOWS (DRAGGABLE MINI-WINDOWS)
+   Reuses your existing theme: colors, blur, glow, etc.
+====================================================== */
+
+.FloatingWindow {
+  position: fixed;
+  top: 350px; /* Below UserMenu by default */
+  right: 10px;
+  width: 300px;
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.25),
+      transparent 55%
+    ),
+    rgba(13, 11, 26, 0.96);
+  border: 1px solid rgba(185, 103, 255, 0.45);
+  border-radius: 18px;
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.82),
+    0 0 25px rgba(185, 103, 255, 0.45),
+    inset 0 0 10px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  z-index: 1051;
+  animation: fadeIn 0.25s ease-in-out;
+  user-select: none;
+}
+
+/* Mobile: Ensure FloatingWindow stays on top of all elements */
+@media (max-width: 775px) {
+  .FloatingWindow {
+    z-index: 1051 !important;
+  }
+}
+
+.FloatingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem 0.6rem;
+  cursor: move;
+  border-radius: 18px 18px 0 0;
+  background: rgba(25, 20, 45, 0.4);
+  border-bottom: 1px solid rgba(185, 103, 255, 0.3);
+}
+
+.FloatingHeader span {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #f3e6ff;
+  letter-spacing: 0.01em;
+}
+
+/* Floating Close Button — Updated */
+.FloatingCloseBtn {
+  background: transparent;
+  border: none;
+  color: #b967ff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(185, 103, 255, 0.25);
+}
+
+.FloatingCloseBtn:hover {
+  color: #ff99cc;
+  background: rgba(185, 103, 255, 0.12);
+  transform: scale(1.05);
+  box-shadow:
+    inset 0 0 0 1px rgba(185, 103, 255, 0.4),
+    0 0 8px rgba(185, 103, 255, 0.35);
+}
+
+.FloatingBody {
+  padding: 0.8rem 1rem 1rem;
+}
+
+/* Reuse your existing component styles inside FloatingWindow */
+.FloatingWindow .TimerDisplay,
+.FloatingWindow .ToolButtons,
+.FloatingWindow .ToolTextarea,
+.FloatingWindow .NotesList,
+.FloatingWindow .ToolHint,
+.FloatingWindow .NoteItem,
+.FloatingWindow .DeleteButton,
+.FloatingWindow .ToolButton {
+  /* These will inherit your global .Tool* styles automatically */
+  /* No need to redefine — your CSS already applies */
+}
+
+/* Ensure GlassCard appearance inside floating window */
+.FloatingWindow .GlassCard {
+  background: rgba(25, 20, 45, 0.7);
+  border-radius: 14px;
+  border: 1px solid rgba(185, 103, 255, 0.35);
+  padding: 1rem;
+  box-shadow: inset 0 0 10px rgba(185, 103, 255, 0.18);
+  margin-top: 0.5rem;
+}
+
+/* Optional: Slight scale on hover for consistency */
+.FloatingWindow .GlassCard:hover {
+  transform: scale(1.01);
+}
+
+/* Responsive: On small screens, make floating window compact */
+@media (max-width: 768px) {
+  .FloatingWindow {
+    position: fixed !important;
+    width: 140px !important;
+    height: auto !important;
+    max-height: 180px !important;
+    bottom: 60px !important;
+    right: 10px !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: 1051 !important;
+    border-radius: 18px;
+    overflow-y: auto !important;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.82), 0 0 25px rgba(185, 103, 255, 0.45);
+  }
+
+  .FloatingWindow .FloatingHeader {
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    padding: 0.5rem 0.6rem 0.4rem !important;
+  }
+
+  .FloatingWindow .FloatingHeader span {
+    font-size: 0.8rem !important;
+  }
+
+  .FloatingWindow .FloatingCloseBtn {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .FloatingWindow .FloatingHeader:active {
+    cursor: grabbing;
+  }
+
+  .FloatingBody {
+    overflow-y: auto !important;
+    padding: 0.5rem !important;
+    max-height: 150px !important;
+  }
+}
+
+/* Extra mobile optimization for very small screens */
+@media (max-width: 480px) {
+  .FloatingWindow {
+    width: 130px !important;
+    height: auto !important;
+    max-height: 170px !important;
+    bottom: 50px !important;
+    right: 5px !important;
+    left: 5px !important;
+  }
+
+  .FloatingWindow .FloatingHeader {
+    padding: 0.4rem 0.5rem 0.3rem !important;
+  }
+
+  .FloatingWindow .FloatingHeader span {
+    font-size: 0.75rem !important;
+  }
+
+  .FloatingWindow .FloatingCloseBtn {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .FloatingBody {
+    max-height: 140px !important;
+    padding: 0.4rem !important;
+  }
+
+  .TimerDisplay {
+    font-size: 1.3rem !important;
+  }
+
+  .ToolButton {
+    font-size: 0.7rem !important;
+    padding: 0.35rem 0.5rem !important;
+  }
+
+  .ToolHint {
+    font-size: 0.7rem !important;
+  }
+}
+
+
+
+/* ======================================================
+   CUSTOM LOGOUT CONFIRMATION POPUP
+====================================================== */
+
+.LogoutConfirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 4, 11, 0.75);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+  animation: fadeOverlay 0.2s ease-out;
+}
+
+@keyframes fadeOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.LogoutConfirmModal {
+  width: 390px;
+  padding: 1.5rem;
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.25),
+      transparent 55%
+    ),
+    rgba(18, 14, 35, 0.96);
+  border-radius: 20px;
+  border: 1px solid rgba(185, 103, 255, 0.45);
+  box-shadow: 0 0 35px rgba(185, 103, 255, 0.3),
+    inset 0 0 12px rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.LogoutConfirmImage {
+  width: 320px;
+  height: 290px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 8px rgba(185, 103, 255, 0.4));
+}
+
+.LogoutConfirmModal h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #f0e2ff;
+  font-weight: 600;
+}
+
+.LogoutConfirmSubtext {
+  margin: 0.2rem 0 1rem;
+  color: #bba8ff;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.LogoutConfirmLink {
+  color: #700092;
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.LogoutConfirmLink:hover {
+  color: #e00def;
+}
+
+.LogoutConfirmButtons {
+  display: flex;
+  gap: 0.7rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.LogoutConfirmCancel {
+  padding: 0.7rem 1rem;
+  background: transparent;
+  color: #f4ecff;
+  border: 1px solid rgba(185, 103, 255, 0.4);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.LogoutConfirmCancel:hover {
+  background: rgba(185, 103, 255, 0.1);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.LogoutConfirmConfirm {
+  padding: 0.7rem 1rem;
+  background: linear-gradient(135deg, rgba(185, 103, 255, 0.8), rgba(100, 50, 180, 0.8));
+  color: white;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.LogoutConfirmConfirm:hover {
+  background: linear-gradient(135deg, rgba(200, 120, 255, 0.9), rgba(120, 60, 200, 0.9));
+  transform: translateY(-1px);
+}
+
+/* === FULL MOBILE OPTIMIZATION — All Phones (iPhone, Samsung, Vivo, Redmi, etc.) === */
+
+@media (max-width: 767px) {
+  /* USER MENU — ✅ FIXED: Correct centering */
+  .UserMenu {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 360px !important;
+    top: 70px !important;
+    padding: 0.8rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .UserMenuItem {
+    padding: 0.6rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  .ToolSection {
+    font-size: 0.75rem !important;
+  }
+
+  .MenuCloseBtn {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 1rem !important;
+  }
+
+  /* FLOATING TOOLS — ✅ FIXED: Correct centering */
+  .FloatingWindow {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 94% !important;
+    max-width: 340px !important;
+    top: 280px !important;
+    padding: 0.7rem !important;
+  }
+
+  .FloatingHeader {
+    padding: 0.7rem 0.8rem !important;
+  }
+
+  .FloatingHeader span {
+    font-size: 1.05rem !important;
+  }
+
+  .FloatingCloseBtn {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 1.1rem !important;
+  }
+
+  .TimerDisplay {
+    font-size: 2rem !important;
+  }
+
+  .ToolButton,
+  .ToolTextarea {
+    padding: 0.55rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .ToolTextarea {
+    font-size: 0.95rem !important;
+  }
+
+  /* SETTINGS MODAL — Full mobile adaptation */
+  .SettingsOverlay {
+    padding-right: 0 !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .SettingsModal {
+    width: 95% !important;
+    max-width: 95vw !important;
+    max-height: 88vh !important;
+    padding: 1rem !important;
+  }
+
+  .SettingsBody {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+  }
+
+  .SettingsSidebar {
+    width: 100% !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    padding-right: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .SettingsTab {
+    padding: 0.5rem 0.7rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .SettingsContent {
+    padding: 0.8rem !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+  }
+
+  .SettingRow {
+    flex-wrap: wrap !important;
+    gap: 0.6rem !important;
+  }
+
+  .SettingText {
+    flex: 1;
+    min-width: 160px !important;
+  }
+
+  .SettingSelect,
+  .ToggleWrapper {
+    width: auto !important;
+    min-width: 100px !important;
+  }
+
+  .SettingsCloseBtn {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 1rem !important;
+  }
+
+  /* HELP MODAL — Mobile-first */
+  .HelpOverlay {
+    align-items: flex-start !important;
+    padding-top: 20px !important;
+  }
+
+  .HelpModal {
+    width: 96% !important;
+    max-width: 96vw !important;
+    max-height: 90vh !important;
+    padding: 1rem !important;
+  }
+
+  .HelpBody {
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+  }
+
+  .HelpSidebar {
+    width: 100% !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+  }
+
+  .HelpTab {
+    padding: 0.65rem !important;
+    font-size: 0.85rem !important;
+    flex: none !important;
+    min-width: 120px !important;
+    text-align: center !important;
+  }
+
+  .HelpContent {
+    padding: 0.9rem !important;
+    font-size: 0.92rem !important;
+  }
+
+  .HelpHeader h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .HelpCloseBtn {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 1.2rem !important;
+  }
+
+  /* LOGOUT CONFIRMATION — Mobile safe */
+  .LogoutConfirmModal {
+    width: 92% !important;
+    max-width: 360px !important;
+    padding: 1.2rem !important;
+  }
+
+  .LogoutConfirmImage {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 200px !important;
+    object-fit: contain !important;
+  }
+
+  .LogoutConfirmButtons {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .LogoutConfirmCancel,
+  .LogoutConfirmConfirm {
+    width: 100% !important;
+    padding: 0.65rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* Ultra-compact for smallest screens (e.g., iPhone SE, Redmi A1) */
+@media (max-width: 390px) {
+  .UserMenu {
+    width: 94% !important;
+    top: 65px !important;
+  }
+
+  .FloatingWindow {
+    top: 240px !important;
+    width: 96% !important;
+  }
+
+  .TimerDisplay {
+    font-size: 1.8rem !important;
+  }
+
+  .SettingsModal,
+  .HelpModal,
+  .LogoutConfirmModal {
+    width: 96% !important;
+    padding: 0.9rem !important;
+  }
+
+  .LogoutConfirmImage {
+    max-height: 180px !important;
+  }
+}

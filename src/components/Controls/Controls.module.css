@@ -1,0 +1,142 @@
+.Controls {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background: rgba(13, 11, 26, 0.8);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(185, 103, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.TextArea {
+  flex: 1;
+  resize: none;
+  background: rgba(20, 18, 30, 0.5);
+  color: #fff;
+  border: 1px solid rgba(185, 103, 255, 0.2);
+  border-radius: 20px;
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  outline: none;
+  font-family: 'Manrope', sans-serif;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 4px rgba(185, 103, 255, 0.3);
+  box-shadow: inset 0 0 8px rgba(185, 103, 255, 0.1);
+}
+
+.TextArea:focus {
+  background: rgba(20, 18, 30, 0.7);
+  border-color: #B967FF;
+  box-shadow: inset 0 0 10px rgba(185, 103, 255, 0.3), 0 0 10px rgba(185, 103, 255, 0.2);
+}
+
+.ButtonGroup {
+  display: flex;
+  gap: 0.4rem;
+  margin-left: 0.6rem;
+}
+
+.IconButton,
+.SendButton {
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(185, 103, 255, 0.3);
+}
+
+.IconButton {
+  background: rgba(185, 103, 255, 0.1);
+  color: #B967FF;
+  font-size: 16px;
+}
+
+.IconButton:hover {
+  background: rgba(185, 103, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.SendButton {
+  background: linear-gradient(135deg, #B967FF, #9A4DFF);
+}
+
+.SendButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(185, 103, 255, 0.6);
+}
+
+.SendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .TextArea {
+    font-size: 0.9rem;
+  }
+
+  .IconButton,
+  .SendButton {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+
+/* === FULL MOBILE OPTIMIZATION — All Phones (iPhone, Samsung, Redmi, Vivo, etc.) === */
+
+@media (max-width: 767px) {
+  /* Prevent iOS zoom on textarea */
+  .TextArea {
+    font-size: 16px !important; /* critical for iOS */
+    padding: 0.85rem 1rem !important;
+  }
+
+  /* Reduce button size slightly for balance */
+  .IconButton,
+  .SendButton {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  /* Adjust spacing */
+  .ButtonGroup {
+    gap: 0.5rem !important;
+    margin-left: 0.5rem !important;
+  }
+
+  /* Ensure container doesn’t overflow */
+  .Controls {
+    padding: 0.7rem 0.8rem !important;
+  }
+}
+
+/* Ultra-compact screens (iPhone SE, Redmi Go, etc.) */
+@media (max-width: 390px) {
+  .TextArea {
+    padding: 0.8rem 0.9rem !important;
+    font-size: 16px !important; /* still 16px to prevent zoom */
+  }
+
+  .IconButton,
+  .SendButton {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .ButtonGroup {
+    gap: 0.4rem !important;
+    margin-left: 0.4rem !important;
+  }
+
+  .Controls {
+    padding: 0.65rem 0.7rem !important;
+  }
+}

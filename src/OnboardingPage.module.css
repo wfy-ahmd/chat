@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* === Background — Clean Galaxy, No Noise === */
+.Background3D {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  background: radial-gradient(circle at 20% 30%, #150F2A, #0D0B1A 70%);
+}
+
+/* === Floating Cubes — Only These, Calm Animation === */
+.Cube {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgba(185, 103, 255, 0.15);
+  border: 1px solid rgba(185, 103, 255, 0.3);
+  box-shadow: 0 0 20px rgba(185, 103, 255, 0.25);
+  animation: spin 20s linear infinite, floatCube 10s ease-in-out infinite;
+  transform-style: preserve-3d;
+  border-radius: 8px;
+  opacity: 0.7;
+}
+
+.Cube:nth-child(1) { top: 12%; left: 18%; animation-delay: 0s; }
+.Cube:nth-child(2) { top: 68%; left: 72%; animation-delay: 3s; }
+.Cube:nth-child(3) { top: 48%; left: 22%; animation-delay: 1.5s; }
+.Cube:nth-child(4) { top: 28%; left: 78%; animation-delay: 4.5s; }
+
+@keyframes spin {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+@keyframes floatCube {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.03); }
+}
+
+/* === Layout === */
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Manrope', sans-serif;
+}
+
+/*  
+=====================================================
+   CARD — MATCH USER MENU / SETTINGS THEME
+=====================================================
+*/
+.Card {
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.25),
+      transparent 55%
+    ),
+    rgba(18, 14, 35, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(185, 103, 255, 0.45);
+  border-radius: 24px;
+
+  padding: 3.2rem 3rem;
+  width: 100%;
+  max-width: 580px;
+  text-align: center;
+
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.82),
+    inset 0 0 10px rgba(255, 255, 255, 0.04);
+
+  animation: fadeIn 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  position: relative;
+  color: #f7f1ff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* === Logo (if you add later) === */
+.Logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 2.4rem;
+}
+
+.Logo img {
+  width: 72px;
+  animation: pulse 3s infinite ease-in-out;
+  filter: drop-shadow(0 0 10px rgba(185, 103, 255, 0.5));
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.Logo h1 {
+  font-size: 2.3rem;
+  color: #d5b2ff;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  text-shadow: 0 0 12px rgba(185, 103, 255, 0.4);
+}
+
+/* === Titles & Text === */
+.Title {
+  color: #f3e6ff;
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  line-height: 1.3;
+}
+
+.Subtext {
+  color: #c9b7e8;
+  font-size: 1.05rem;
+  margin-bottom: 2.2rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* === 50x50 Icon Container (unused now but kept) === */
+.IconPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem auto 1.8rem;
+  width: 50px;
+  height: 50px;
+}
+
+.IconPlaceholder img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 4px rgba(185, 103, 255, 0.3));
+}
+
+/* === Step 2: Feature Items === */
+.FeatureList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 1.8rem;
+}
+
+.FeatureItem {
+  text-align: left;
+  color: #f3e6ff;
+  font-size: 1.05rem;
+  opacity: 0;
+  transform: translateX(25px);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* === Testimonial (if you use later) === */
+.Testimonial {
+  background: rgba(20, 16, 36, 0.9);
+  padding: 1.4rem;
+  border-radius: 16px;
+  margin: 1.8rem 0;
+  border: 1px solid rgba(185, 103, 255, 0.25);
+}
+
+.Testimonial p:first-child {
+  color: #e8d8ff;
+  font-style: italic;
+  font-size: 1.12rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+.TestimonialAuthor {
+  color: #c89cff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: right;
+}
+
+/* === Subject Icons (Step 3) === */
+.SubjectIcons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 1.8rem 0;
+}
+
+.SubjectIcons span {
+  background: rgba(185, 103, 255, 0.14);
+  padding: 0.65rem 1rem;
+  border-radius: 14px;
+  color: #e8d8ff;
+  font-size: 0.95rem;
+  border: 1px solid rgba(185, 103, 255, 0.24);
+  opacity: 0.9;
+}
+
+/* === Buttons — Same theme, NO glow === */
+.CtaButton,
+.StartButton {
+  width: 100%;
+  padding: 1.05rem 1.2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(185, 103, 255, 0.9),
+    rgba(117, 70, 255, 0.9)
+  );
+  border-radius: 14px;
+  border: 1px solid rgba(185, 103, 255, 0.6);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  letter-spacing: 0.3px;
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.55); /* soft, not neon */
+}
+
+.CtaButton:hover,
+.StartButton:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(196, 122, 255, 0.98),
+    rgba(132, 88, 255, 0.98)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.65);
+}
+
+/* === Footer === */
+.Footer {
+  margin-top: 2rem;
+  color: #bfb3ff;
+  font-size: 0.95rem;
+}
+
+.LinkButton {
+  border: none;
+  background: none;
+  color: #f0d0ff;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.LinkButton:hover {
+  color: #ffffff;
+}
+
+/* === Animations === */
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(28px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.FadeSlide {
+  animation: fadeSlideUp 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.SlideIn {
+  animation: slideInLeft 0.45s ease forwards;
+}
+.SlideIn:nth-child(1) { animation-delay: 0.1s; }
+.SlideIn:nth-child(2) { animation-delay: 0.25s; }
+.SlideIn:nth-child(3) { animation-delay: 0.4s; }
+.SlideIn:nth-child(4) { animation-delay: 0.55s; }
+
+.Pulse {
+  animation: pulseBtn 2s infinite ease-in-out;
+}
+
+@keyframes pulseBtn {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .Card {
+    padding: 2.4rem 1.8rem;
+    margin: 1rem;
+  }
+
+  .Logo img {
+    width: 64px;
+  }
+
+  .Logo h1 {
+    font-size: 2rem;
+  }
+
+  .Title {
+    font-size: 1.5rem;
+  }
+
+  .Subtext {
+    font-size: 0.98rem;
+    padding: 0 0.5rem;
+  }
+
+  .FeatureItem {
+    font-size: 1rem;
+  }
+
+  .CtaButton,
+  .StartButton {
+    padding: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .SubjectIcons span {
+    font-size: 0.9rem;
+    padding: 0.55rem 0.9rem;
+  }
+
+  .IconPlaceholder {
+    margin: 1rem auto 1.4rem;
+  }
+}
+
+
+/* === FULL MOBILE OPTIMIZATION — All Phones (iPhone, Samsung, Redmi, Vivo, etc.) === */
+
+@media (max-width: 767px) {
+  /* Prevent any horizontal overflow */
+  html, body, #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Make images fully responsive */
+  .Card img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    margin: 0 auto 1.6rem !important;
+  }
+
+  /* Adjust card padding and width */
+  .Card {
+    padding: 2rem 1.4rem !important;
+    margin: 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    width: 100% !important;
+  }
+
+  /* Title & text scaling */
+  .Title {
+    font-size: 1.4rem !important;
+    margin-bottom: 1.2rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .Subtext {
+    font-size: 0.95rem !important;
+    padding: 0 0.3rem !important;
+    margin-bottom: 1.6rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Feature items: full-width, no overflow */
+  .FeatureList {
+    gap: 12px !important;
+    margin-bottom: 1.6rem !important;
+  }
+
+  .FeatureItem {
+    font-size: 0.95rem !important;
+    text-align: left !important;
+    padding: 0 !important;
+    opacity: 1 !important; /* ensure visible even if JS fade lags */
+    transform: translateX(0) !important;
+  }
+
+  /* Buttons: slightly smaller, full-width already set */
+  .CtaButton,
+  .StartButton {
+    padding: 0.95rem !important;
+    font-size: 1rem !important;
+  }
+
+  /* Footer & link */
+  .Footer {
+    margin-top: 1.6rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .LinkButton {
+    font-size: 0.9rem !important;
+  }
+
+  /* Ensure background doesn't interfere */
+  .Background3D {
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Extra: prevent zoom on input focus (optional but recommended) */
+  body {
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+  }
+}
+
+/* Ultra-compact for small screens (e.g., iPhone SE, Redmi Go) */
+@media (max-width: 390px) {
+  .Card {
+    padding: 1.8rem 1rem !important;
+  }
+
+  .Title {
+    font-size: 1.3rem !important;
+  }
+
+  .Subtext {
+    font-size: 0.9rem !important;
+  }
+
+  .FeatureItem {
+    font-size: 0.9rem !important;
+  }
+
+  .CtaButton,
+  .StartButton {
+    padding: 0.9rem !important;
+    font-size: 0.95rem !important;
+  }
+}

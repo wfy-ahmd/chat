@@ -1,0 +1,232 @@
+.Chat {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* MESSAGE WRAPPER */
+.Message {
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
+  transition: all 0.3s ease;
+}
+
+.assistant {
+  align-self: flex-start;
+}
+
+.user {
+  align-self: flex-end;
+}
+
+/* WRAPPER */
+.BubbleWrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* ========================================================
+   🟣 SAME THEME AS USERMENU + SETTINGS (GLASS + PURPLE)
+======================================================== */
+.Bubble {
+  padding: 12px 15px;
+  border-radius: 16px;
+  line-height: 1.5;
+  word-break: break-word;
+
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.22),
+      transparent 55%
+    ),
+    rgba(13, 11, 26, 0.92);
+
+  border: 1px solid rgba(185, 103, 255, 0.45);
+  color: #eaddff;
+
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.75),
+    0 0 18px rgba(185, 103, 255, 0.33),
+    inset 0 0 8px rgba(255, 255, 255, 0.04);
+
+  min-width: 80px;
+}
+
+/* ASSISTANT BUBBLE */
+.assistant .Bubble {
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.18),
+      transparent 55%
+    ),
+    rgba(13, 11, 26, 0.92);
+
+  border-color: rgba(185, 103, 255, 0.5);
+  color: #e8d8ff;
+}
+
+/* ========================================================
+   🟣 USER BUBBLE — MATCH EXACT SAME DEEP NAVY THEME
+======================================================== */
+.user .Bubble {
+  background: radial-gradient(
+      circle at top left,
+      rgba(185, 103, 255, 0.22),
+      transparent 55%
+    ),
+    rgba(13, 11, 26, 0.92);
+
+  border: 1px solid rgba(185, 103, 255, 0.5);
+  color: #eaddff;
+
+  /* same glass shadow */
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.75),
+    0 0 18px rgba(185, 103, 255, 0.33),
+    inset 0 0 8px rgba(255, 255, 255, 0.04);
+
+  text-shadow: none;
+}
+
+/* HOVER ELEVATION */
+.Bubble:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 14px 28px rgba(185, 103, 255, 0.35),
+    0 0 25px rgba(185, 103, 255, 0.45);
+}
+
+/* TIME */
+.Time {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 4px;
+  align-self: flex-end;
+  color: #bba8ff;
+}
+
+/* COPY + EDIT BUTTONS */
+.CopyButton,
+.EditButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  background: rgba(185, 103, 255, 0.12);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  opacity: 0;
+
+  transition: opacity 0.2s ease, background 0.2s ease;
+
+  color: #d8c1ff;
+  font-size: 12px;
+
+  box-shadow: 0 0 8px rgba(185, 103, 255, 0.25);
+  z-index: 10;
+}
+
+.EditButton {
+  right: 36px;
+}
+
+.Message:hover .CopyButton,
+.Message:hover .EditButton {
+  opacity: 1;
+}
+
+.CopyButton:hover,
+.EditButton:hover {
+  background: rgba(185, 103, 255, 0.3);
+}
+
+
+
+
+/* === FULL MOBILE OPTIMIZATION — All Phones (iPhone, Samsung, Redmi, Vivo, etc.) === */
+
+@media (max-width: 767px) {
+  /* Reduce bubble max-width on mobile */
+  .Message {
+    max-width: 85% !important;
+  }
+
+  /* Add breathing room on sides */
+  .Chat {
+    padding: 0 8px !important;
+  }
+
+  /* Adjust bubble padding for readability */
+  .Bubble {
+    padding: 12px 14px !important;
+    font-size: 0.95rem !important;
+    border-radius: 16px !important;
+  }
+
+  /* Reposition buttons to avoid overflow */
+  .CopyButton,
+  .EditButton {
+    top: 6px !important;
+    right: 6px !important;
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 11px !important;
+  }
+
+  .EditButton {
+    right: 32px !important;
+  }
+
+  /* Time stamp */
+  .Time {
+    font-size: 0.7rem !important;
+    margin-top: 3px !important;
+  }
+
+  /* Ensure long words wrap */
+  .Bubble {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+/* Ultra-compact for small screens (e.g., iPhone SE, Redmi Go) */
+@media (max-width: 390px) {
+  .Message {
+    max-width: 90% !important;
+  }
+
+  .Bubble {
+    padding: 10px 12px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .CopyButton,
+  .EditButton {
+    top: 5px !important;
+    right: 5px !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .EditButton {
+    right: 28px !important;
+  }
+
+  .Time {
+    font-size: 0.65rem !important;
+  }
+}

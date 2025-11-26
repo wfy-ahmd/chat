@@ -1,0 +1,51 @@
+:root {
+  --font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+* { 
+  box-sizing: border-box; 
+}
+
+html, body, #root { 
+  height: 100%; 
+}
+
+body {
+  margin: 0 auto;
+  font-family: var(--font-sans);
+  width: 100%;
+  max-width: 640px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* === MOBILE RESPONSIVENESS SAFETY LAYER === */
+/* Prevents overflow and ensures full compatibility on all phones */
+@media (max-width: 767px) {
+  /* Ensure no horizontal scrolling */
+  html, body, #root {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Allow slight breathing room on small screens */
+  body {
+    max-width: 100% !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  /* Force all children to respect container bounds */
+  * {
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+  }
+
+  /* Prevent iOS Safari from zooming on input focus */
+  input, textarea, select, button {
+    font-size: 16px !important;
+  }
+}
